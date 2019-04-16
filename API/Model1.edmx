@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="autenticadorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="usu_id_usuario" />
+          </Key>
+          <Property Name="usu_id_usuario" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="usu_ds_login" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="usu_ds_password" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="usu_ds_email" Type="varchar" MaxLength="100" />
+          <Property Name="usu_ds_telefone" Type="varchar" MaxLength="20" />
+          <Property Name="usu_ds_cpf" Type="varchar" MaxLength="20" />
+          <Property Name="usu_ds_imagem" Type="varchar" MaxLength="100" />
+          <Property Name="usu_ds_nome" Type="varchar" MaxLength="100" />
+          <Property Name="usu_st_ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="autenticadorModelStoreContainer">
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="autenticadorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="usu_id_usuario" />
+          </Key>
+          <Property Name="usu_id_usuario" Type="Guid" Nullable="false" />
+          <Property Name="usu_ds_login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usu_ds_password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usu_ds_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="usu_ds_telefone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="usu_ds_cpf" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="usu_ds_imagem" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="usu_ds_nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="usu_st_ativo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="autenticadorEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="usuario" EntityType="Self.usuario" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="autenticadorModelStoreContainer" CdmEntityContainer="autenticadorEntities">
+          <EntitySetMapping Name="usuario">
+            <EntityTypeMapping TypeName="autenticadorModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="usu_id_usuario" ColumnName="usu_id_usuario" />
+                <ScalarProperty Name="usu_ds_login" ColumnName="usu_ds_login" />
+                <ScalarProperty Name="usu_ds_password" ColumnName="usu_ds_password" />
+                <ScalarProperty Name="usu_ds_email" ColumnName="usu_ds_email" />
+                <ScalarProperty Name="usu_ds_telefone" ColumnName="usu_ds_telefone" />
+                <ScalarProperty Name="usu_ds_cpf" ColumnName="usu_ds_cpf" />
+                <ScalarProperty Name="usu_ds_imagem" ColumnName="usu_ds_imagem" />
+                <ScalarProperty Name="usu_ds_nome" ColumnName="usu_ds_nome" />
+                <ScalarProperty Name="usu_st_ativo" ColumnName="usu_st_ativo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
